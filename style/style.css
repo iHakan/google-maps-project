@@ -17,7 +17,7 @@ body {
     font-weight: bold;
     z-index: 30;
     text-transform: uppercase;
-    color: #333;    
+    color: rgb(219, 219, 219);    
 }
 .search-container{
     width: 400px;
