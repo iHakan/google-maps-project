@@ -1,6 +1,6 @@
 ## Google Maps API Key
 
-<!--AIzaSyBh15L6ZQVrZVsMjwAhb_3-X6bbgpSGtQk--> get your own API key Hakan
+<!--AIzaSyBh15L6ZQVrZVsMjwAhb_3-X6bbgpSGtQk--> get your own API key 
 
 **WARNING**
 DO NOT SHARE IT WITH ANYONE
