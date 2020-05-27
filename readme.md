@@ -1,11 +1,3 @@
-## Google Maps API Key
-
-<!--AIzaSyBh15L6ZQVrZVsMjwAhb_3-X6bbgpSGtQk--> get your own API key Hakan
-
-**WARNING**
-DO NOT SHARE IT WITH ANYONE
-
-## FontAwesome Link
-
-https://kit.fontawesome.com/c939d0e917.js
+## Google Maps Project
+For live instance please visit: https://ihakan.github.io/google-maps-project/
 
