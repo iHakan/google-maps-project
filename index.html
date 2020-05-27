@@ -97,12 +97,19 @@
                 lat:34.063380 ,
                 lng:-118.358080
             }
+            var istanbul = {
+                lat:41.015137 ,
+                lng:28.979530
+            }
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 34.063380, lng: -118.358080},
             zoom: 8
           });
           var marker1 = new google.maps.Marker({position: losAngeles, map: map});
+          var marker2 = new google.maps.Marker({position: istanbul, map: map});
         }
+        
+        
       </script>
  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh15L6ZQVrZVsMjwAhb_3-X6bbgpSGtQk&callback=initMap"
  type="text/javascript"></script>
