@@ -93,11 +93,46 @@ function initMap() {
   });
 
   infoWindow = new google.maps.InfoWindow(); //we defined the info window at the top global scope
-  displayStores();
+  searchStores();
   showStoreMarkers();
+  setOnClickListener();
 }
 
-function displayStores() {
+function searchStores() {
+  var foundStores = [];
+  var zipCode = document.getElementById("zip-code-input").value;
+  if (zipCode) {
+    stores.forEach(function (store) {
+      var postal = store.address.postalCode.substring(0, 5);
+      if (postal == zipCode) {
+        foundStores.push(store);
+      }
+    });
+  } else {
+    foundStores = stores;
+  }
+  clearLocations();
+  displayStores(foundStores);
+}
+
+function clearLocations() {
+  infoWindow.close();
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers.length = 0;
+}
+
+function setOnClickListener() {
+  var storeElements = document.querySelectorAll(".store-container");
+  storeElements.forEach(function (elem, index) {
+    elem.addEventListener("click", function () {
+      google.maps.event.trigger(markers[index], "click");
+    });
+  });
+}
+
+function displayStores(stores) {
   var storesHtml = "";
   stores.forEach(function (store, index) {
     var address = store.addressLines;
@@ -140,13 +175,13 @@ function showStoreMarkers() {
     var phoneNumber = store.phoneNumber;
     bounds.extend(latlng); //for extending the bound if any markers are outside
     //of the bound to fit it!
-    createMarker(latlng, name, address, openStatus, phoneNumber);
+    createMarker(latlng, name, address, openStatus, phoneNumber, index);
   });
   map.fitBounds(bounds); // to spread the markers
 }
 
 ///////////////////Creating Markers here for google maps////////////////
-function createMarker(latlng, name, address, openStatus, phoneNumber) {
+function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
   var html = `
         <div class="store-info-window">
             <div class="store-info-name">
@@ -156,10 +191,16 @@ function createMarker(latlng, name, address, openStatus, phoneNumber) {
                 ${openStatus} 
             </div>
             <div class="store-info-address">
+            <div class="circle">
+                <i class="fas fa-location-arrow"></i>
+            </div>
                 ${address} 
             </div>
             <div class="store-info-phone">
-                ${phoneNumber} 
+                <div class="circle">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                    ${phoneNumber} 
             </div>
         </div>
     `;
@@ -167,6 +208,7 @@ function createMarker(latlng, name, address, openStatus, phoneNumber) {
   var marker = new google.maps.Marker({
     map: map,
     position: latlng,
+    label: `${index + 1}`,
   });
   google.maps.event.addListener(marker, "click", function () {
     infoWindow.setContent(html);

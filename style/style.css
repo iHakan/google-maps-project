@@ -96,6 +96,7 @@ body {
   width: 80%;
   padding: 20px 20px;
   border-bottom: 0.5px dashed gray;
+  cursor: pointer;
 }
 .store-container:hover {
   background-color: rgb(228, 228, 228);
@@ -140,24 +141,50 @@ body {
 
 /*********************Marker labels**********************************************/
 .store-info-window {
-    min-width: 300px;
-    font-size:18px;
-    padding:8px;
+  min-width: 300px;
+  font-size: 18px;
+  padding: 8px;
+  /* background-color: rgb(56, 66, 92); */
+  border-radius: 8px;
 }
 
 .store-info-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: rgba(0,0,0,0.87);
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(215, 107, 107);
 }
 .store-info-status {
-    margin-top:6px;
-    border-bottom: 1px solid #00000029;
-    padding-bottom: 6px;
+  margin-top: 6px;
+  border-bottom: 1px solid #00000029;
+  padding-bottom: 6px;
 }
-.store-info-address{
-    margin-top: 8px;
+.store-info-address {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
 }
-.store-info-phone{
-    margin-top: 8px;
+.store-info-phone {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.store-info-address .circle,
+.store-info-phone .circle {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(44, 175, 94);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gm-style .gm-style-iw-c {
+  background-color: rgb(56, 66, 92);
+  color: rgb(218, 218, 218);
+}
+.gm-style-iw-d {
+  overflow: hidden;
 }
