@@ -167,7 +167,6 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, color) {
   var marker = new google.maps.Marker({
     map: map,
     position: latlng,
-    icon: image,
   });
   google.maps.event.addListener(marker, "click", function () {
     infoWindow.setContent(html);
