@@ -1,10 +1,12 @@
 var map;
+var markers = [];
+var infoWindow;
 function initMap() {
   var losAngeles = {
     lat: 34.06338,
     lng: -118.35808,
   };
- 
+
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 34.06338, lng: -118.35808 },
     zoom: 8,
@@ -90,8 +92,9 @@ function initMap() {
     ],
   });
 
- 
+  infoWindow = new google.maps.InfoWindow(); //we defined the info window at the top global scope
   displayStores();
+  showStoreMarkers();
 }
 
 function displayStores() {
@@ -120,4 +123,55 @@ function displayStores() {
   });
 
   document.querySelector(".stores-list").innerHTML = storesHtml;
+}
+
+//////////////////Showing the markers////////////////////////
+function showStoreMarkers() {
+  var bounds = new google.maps.LatLngBounds();
+  stores.forEach(function (store, index) {
+    var latlng = new google.maps.LatLng( //to spread the markers
+      store.coordinates.latitude,
+      store.coordinates.longitude
+    );
+    console.log(latlng);
+    var name = store.name;
+    var address = store.addressLines[0]; //we only get the first part of the address
+    var openStatus = store.openStatusText;
+    var phoneNumber = store.phoneNumber;
+    bounds.extend(latlng); //for extending the bound if any markers are outside
+    //of the bound to fit it!
+    createMarker(latlng, name, address, openStatus, phoneNumber);
+  });
+  map.fitBounds(bounds); // to spread the markers
+}
+
+///////////////////Creating Markers here for google maps////////////////
+function createMarker(latlng, name, address, openStatus, phoneNumber, color) {
+  var html =
+    "<b style='font-size:18px; color:rgb(56, 66, 92);'>" +
+    name +
+    "</b> <br/>" +
+    "<span style='color: rgb(182, 182, 182)'>" +
+    openStatus +
+    "</span> <br/>" +
+    "<hr style='border-top:none; border-bottom:0.2px dashed rgb(182, 182, 182)'>" +
+    "<span style='font-size:15px; color:rgb(56, 66, 92);'>" +
+    "<i class='fas fa-location'>" +
+    address +
+    "</i> <br/>" +
+    "<span style='font-size:15px; color:rgb(56, 66, 92);'>" +
+    "<i class='fas fa-location' style='font-size:15px; color:rgb(56, 66, 92)'>Phone: " +
+    phoneNumber +
+    "</i>";
+
+  var marker = new google.maps.Marker({
+    map: map,
+    position: latlng,
+    icon: image,
+  });
+  google.maps.event.addListener(marker, "click", function () {
+    infoWindow.setContent(html);
+    infoWindow.open(map, marker);
+  });
+  markers.push(marker);
 }
