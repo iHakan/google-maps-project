@@ -94,7 +94,6 @@ function initMap() {
 
   infoWindow = new google.maps.InfoWindow(); //we defined the info window at the top global scope
   searchStores();
-  showStoreMarkers();
   setOnClickListener();
 }
 
@@ -113,6 +112,7 @@ function searchStores() {
   }
   clearLocations();
   displayStores(foundStores);
+  showStoreMarkers(foundStores);
 }
 
 function clearLocations() {
@@ -161,7 +161,7 @@ function displayStores(stores) {
 }
 
 //////////////////Showing the markers////////////////////////
-function showStoreMarkers() {
+function showStoreMarkers(stores) {
   var bounds = new google.maps.LatLngBounds();
   stores.forEach(function (store, index) {
     var latlng = new google.maps.LatLng( //to spread the markers
