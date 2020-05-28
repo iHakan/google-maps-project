@@ -146,23 +146,23 @@ function showStoreMarkers() {
 }
 
 ///////////////////Creating Markers here for google maps////////////////
-function createMarker(latlng, name, address, openStatus, phoneNumber, color) {
-  var html =
-    "<b style='font-size:18px; color:rgb(56, 66, 92);'>" +
-    name +
-    "</b> <br/>" +
-    "<span style='color: rgb(182, 182, 182)'>" +
-    openStatus +
-    "</span> <br/>" +
-    "<hr style='border-top:none; border-bottom:0.2px dashed rgb(182, 182, 182)'>" +
-    "<span style='font-size:15px; color:rgb(56, 66, 92);'>" +
-    "<i class='fas fa-location'>" +
-    address +
-    "</i> <br/>" +
-    "<span style='font-size:15px; color:rgb(56, 66, 92);'>" +
-    "<i class='fas fa-location' style='font-size:15px; color:rgb(56, 66, 92)'>Phone: " +
-    phoneNumber +
-    "</i>";
+function createMarker(latlng, name, address, openStatus, phoneNumber) {
+  var html = `
+        <div class="store-info-window">
+            <div class="store-info-name">
+                ${name}
+            </div>
+            <div class="store-info-status">
+                ${openStatus} 
+            </div>
+            <div class="store-info-address">
+                ${address} 
+            </div>
+            <div class="store-info-phone">
+                ${phoneNumber} 
+            </div>
+        </div>
+    `;
 
   var marker = new google.maps.Marker({
     map: map,
