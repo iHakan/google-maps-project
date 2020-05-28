@@ -89,14 +89,13 @@ body {
 /*New styling starting from here.....*/
 
 .store-container {
-    display:flex;
+  display:flex;
   position: relative;
   top: 10px;
   margin: 0 auto;
   width: 80%;
   padding: 20px 20px;
   border-bottom: 0.5px dashed gray;
-  flex-grow:1;
 }
 .store-container:hover {
   background-color: rgb(228, 228, 228);
@@ -109,7 +108,7 @@ body {
   border: none;
 }
 .store-info-container{
-    flex-grow: 1;;
+    flex-grow: 1;
 }
 .store-phone-number > p {
   /*margin:0 auto;*/
@@ -123,7 +122,7 @@ body {
   padding-top: 10px;
 }
 
-.card-numbers-container {
+.store-number-container {
   width: 30px;
   height: 30px;
   display: flex;
