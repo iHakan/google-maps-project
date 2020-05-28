@@ -189,3 +189,7 @@ body {
 .gm-style-iw-d {
   overflow: hidden !important;
 }
+.gm-style .gm-style-iw-t::after {
+    background: linear-gradient(45deg, rgb(56, 66, 92) 100%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
+    box-shadow: -2px 2px 2px 0 rgba(255,255,255,0);
+}
