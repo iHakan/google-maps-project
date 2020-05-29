@@ -194,7 +194,7 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
             <div class="circle">
               <i class="fas fa-map-marker-alt"></i>
             </div>
-                ${address} 
+                ${address}
             </div>
             <div class="store-info-phone">
                 <div class="circle">
@@ -205,9 +205,19 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
         </div>
     `;
 
+  //////////////////////////icon addition////////////////////////////
+  var coffeeMarker = {
+    url: "https://image.flaticon.com/icons/svg/808/808866.svg",
+    size: new google.maps.Size(60, 60),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(17, 34),
+    scaledSize: new google.maps.Size(50, 50),
+  };
+
   var marker = new google.maps.Marker({
     map: map,
     position: latlng,
+    icon: coffeeMarker,
     label: `${index + 1}`,
   });
   google.maps.event.addListener(marker, "click", function () {
