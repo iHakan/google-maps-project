@@ -194,7 +194,9 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
             <div class="circle">
               <i class="fas fa-map-marker-alt"></i>
             </div>
+            <a style="color:rgb(218, 218, 218);" href="https://www.google.com/maps/dir/?api=1&destination=${address}" target="_blank">
                 ${address}
+                </a>
             </div>
             <div class="store-info-phone">
                 <div class="circle">
@@ -237,5 +239,3 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
   });
   markers.push(marker);
 }
-
-
