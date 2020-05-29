@@ -10,6 +10,9 @@ body {
   height: 100vh;
 }
 
+#cute-coffee-icon{
+  width: 90px;
+}
 .title {
   position: absolute;
   top: 100px;
