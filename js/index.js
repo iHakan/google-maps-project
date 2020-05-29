@@ -194,6 +194,7 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
             <div class="circle">
               <i class="fas fa-map-marker-alt"></i>
             </div>
+            <!--Next line will help us to show the destionation on the exact google map-->
             <a style="color:rgb(218, 218, 218);" href="https://www.google.com/maps/dir/?api=1&destination=${address}" target="_blank">
                 ${address}
                 </a>
