@@ -205,7 +205,7 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
         </div>
     `;
 
-  //////////////////////////icon addition////////////////////////////
+  //////////////////////////icon variable creation and  addition////////////////////////////
   var coffeeMarker = {
     url: "https://image.flaticon.com/icons/svg/808/808866.svg",
     size: new google.maps.Size(60, 60),
@@ -218,11 +218,24 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
     map: map,
     position: latlng,
     icon: coffeeMarker,
+    animation: google.maps.Animation.DROP,
     label: `${index + 1}`,
   });
+  ////////toogle bounce animation section////////////
+  marker.addListener("click", toggleBounce);
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+  ////////////////////////////////////////////////////7
   google.maps.event.addListener(marker, "click", function () {
     infoWindow.setContent(html);
     infoWindow.open(map, marker);
   });
   markers.push(marker);
 }
+
+
