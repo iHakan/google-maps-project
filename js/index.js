@@ -192,13 +192,13 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
             </div>
             <div class="store-info-address">
             <div class="circle">
-                <i class="fas fa-location-arrow"></i>
+              <i class="fas fa-map-marker-alt"></i>
             </div>
                 ${address} 
             </div>
             <div class="store-info-phone">
                 <div class="circle">
-                    <i class="fas fa-phone-alt"></i>
+                  <i class="fas fa-mobile-alt"></i>
                 </div>
                     ${phoneNumber} 
             </div>
