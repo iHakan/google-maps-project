@@ -240,3 +240,14 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
   });
   markers.push(marker);
 }
+///////////////////////////////Sound effects on hover//////////////////////////////
+function playSound(soundObj) {
+  var thisSound = document.getElementById(soundObj);
+  thisSound.play();
+}
+
+function stopSound(soundObj) {
+  var thisSound = document.getElementById(soundObj);
+  thisSound.pause();
+  thisSound.currentTime = 0;
+}
