@@ -231,6 +231,7 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
       marker.setAnimation(null);
     } else {
       marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function(){ marker.setAnimation(null); }, 1000);
     }
   }
   ////////////////////////////////////////////////////7
@@ -241,6 +242,7 @@ function createMarker(latlng, name, address, openStatus, phoneNumber, index) {
   markers.push(marker);
 }
 ///////////////////////////////Sound effects on hover//////////////////////////////
+
 function playSound(soundObj) {
   var thisSound = document.getElementById(soundObj);
   thisSound.play();
